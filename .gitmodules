@@ -1,0 +1,3 @@
+[submodule "utils"]
+	path = src/utils
+	url = git@github.com:editmodelabs/editmode-react-core.git
