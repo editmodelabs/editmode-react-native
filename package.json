@@ -9,8 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "react": "16.*",
-    "react-dom": "16.*"
+    "react-dom": "16.*",
+    "react-router-native": "^5.2.0"
   },
   "keywords": [
     "Editmode",
@@ -18,7 +18,7 @@
     "editable",
     "react"
   ],
-  "author": "Megan Ennis",
+  "author": "Bos Eriko Reyes",
   "license": "ISC",
   "dependencies": {
     "@emotion/hash": "^0.8.0",

@@ -24,5 +24,5 @@ module.exports = {
       },
     ],
   },
-  externals: [nodeExternals(), {react: 'react', 'react-dom': 'react-dom'}],
+  externals: [nodeExternals(), {react: 'react', 'react-dom': 'react-dom', 'react-native': 'react-native'}],
 };
