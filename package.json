@@ -9,8 +9,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
+    "@emotion/hash": "0.8.*",
+    "axios": "^0.19.2",
+    "lodash.kebabcase": "^4.1.1",
     "react-dom": "16.*",
-    "react-router-native": "^5.2.0"
+    "react-router-native": "5.*"
   },
   "keywords": [
     "Editmode",
@@ -22,6 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "@emotion/hash": "^0.8.0",
+    "@react-native-community/async-storage": "^1.12.1",
     "axios": "^0.19.2",
     "isomorphic-dompurify": "^0.6.0",
     "lodash.kebabcase": "^4.1.1",
