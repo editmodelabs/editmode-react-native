@@ -33,7 +33,10 @@ export function useChunk(defaultContent, { identifier, type, contentKey }) {
 
   useEffect(() => {
     // Render content
-    let cachedChunk = getCachedData(cacheId)
+    let cachedChunk;
+    (async () =>{
+      cachedChunk = await getCachedData(cacheId);
+    })();
     let newChunk = cachedChunk ? JSON.parse(cachedChunk) : fallbackChunk || {
       chunk_type: type || "single_line_text",
       content: defaultContent,

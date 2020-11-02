@@ -17,8 +17,11 @@ export function ChunkCollection({
   const cacheId = identifier + limit + tags.join("")
 
   useEffect(() => {
-    // Get data from localStorage
-    const cachedChunk = getCachedData(cacheId);
+    // Get data from AsnycStorage
+    let cachedChunk;
+    (async () =>{
+      cachedChunk = await getCachedData(cacheId);
+    })();
     if (cachedChunk) {
       const data = JSON.parse(cachedChunk);
       setChunk(data);
