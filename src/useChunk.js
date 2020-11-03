@@ -3,8 +3,7 @@ import { useContext, useEffect, useState, useMemo } from "react";
 
 import { EditmodeContext } from "./EditmodeContext";
 import { api, computeContentKey } from './utils'
-import { renderChunk } from './utils/native';
-import { getCachedData, storeCache } from './utils/native'
+import { renderChunk, getCachedData, storeCache } from './utils/native'
 
 export function useChunk(defaultContent, { identifier, type, contentKey }) {
   const { projectId, defaultChunks } = useContext(EditmodeContext);
@@ -34,33 +33,32 @@ export function useChunk(defaultContent, { identifier, type, contentKey }) {
 
   useEffect(() => {
     // Render content
-    let cachedChunk;
     (async () =>{
-      cachedChunk = await getCachedData(cacheId);
+      const cachedChunk = await getCachedData(cacheId);
+      const newChunk = cachedChunk ? JSON.parse(cachedChunk) : fallbackChunk || {
+        chunk_type: type || "single_line_text",
+        content: defaultContent,
+        content_key: contentKey
+      }
+
+      if (newChunk) setChunk(newChunk)
+
+      // Fetch new data
+      let error;
+      api
+        .get(url)
+        .then((res) => {
+          storeCache(cacheId, res.data)
+          if (!cachedChunk) setChunk(res.data)
+        }) // Store chunk to localstorage
+        .catch((error) => console.log(error)); // Set error state
+
+      if (error && identifier) {
+        console.warn(
+          `Something went wrong trying to retrieve chunk data: ${error}. Have you provided the correct Editmode identifier (${identifier}) as a prop to your Chunk component instance?`
+        );
+      }
     })();
-    let newChunk = cachedChunk ? JSON.parse(cachedChunk) : fallbackChunk || {
-      chunk_type: type || "single_line_text",
-      content: defaultContent,
-      content_key: contentKey
-    }
-
-    if (newChunk) setChunk(newChunk)
-
-    // Fetch new data
-    let error;
-    api
-      .get(url)
-      .then((res) => {
-        storeCache(cacheId, res.data)
-        if (!cachedChunk) setChunk(res.data)
-      }) // Store chunk to localstorage
-      .catch((error) => console.log(error)); // Set error state
-
-    if (error && identifier) {
-      console.warn(
-        `Something went wrong trying to retrieve chunk data: ${error}. Have you provided the correct Editmode identifier (${identifier}) as a prop to your Chunk component instance?`
-      );
-    }
   }, [cacheId]);
 
   
