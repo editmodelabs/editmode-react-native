@@ -1,7 +1,7 @@
 {
   "name": "editmode-react-native",
-  "version": "3.1.14",
-  "description": "Convert slices of content in your React app into inline-editable Editmode chunks.",
+  "version": "0.0.1",
+  "description": "Convert slices of content in your React Native app into inline-editable Editmode chunks.",
   "main": "dist/main",
   "scripts": {
     "start": "webpack --watch",
@@ -19,9 +19,9 @@
     "Editmode",
     "chunk",
     "editable",
-    "react"
+    "react-native"
   ],
-  "author": "Bos Eriko Reyes",
+  "author": "Editmode",
   "license": "ISC",
   "dependencies": {
     "@emotion/hash": "^0.8.0",
