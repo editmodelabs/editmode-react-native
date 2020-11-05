@@ -5,7 +5,7 @@ import { EditmodeContext } from "./EditmodeContext";
 import { api, computeContentKey } from './utils'
 import { renderChunk, getCachedData, storeCache } from './utils/native'
 
-export function useChunk(defaultContent, { identifier, type, contentKey }) {
+export function useChunk(defaultContent = "", { identifier, type, contentKey }) {
   const { projectId, defaultChunks } = useContext(EditmodeContext);
   const [chunk, setChunk] = useState(undefined);
 
