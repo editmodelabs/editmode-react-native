@@ -1,0 +1,45 @@
+{
+  "projectName": "editmode-react",
+  "projectOwner": "Editmode-app",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 40,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "ericclemmons",
+      "name": "Eric Clemmons",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/15182?v=4",
+      "profile": "https://ericclemmons.com/",
+      "contributions": [
+        "doc",
+        "infra",
+        "code"
+      ]
+    },
+    {
+      "login": "puuripurii",
+      "name": "Jen Villaganas",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/26903002?v=4",
+      "profile": "https://github.com/puuripurii",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "BosEriko",
+      "name": "Bos Eriko Reyes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/10940193?v=4",
+      "profile": "http://boseriko.com/",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
