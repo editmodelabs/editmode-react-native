@@ -123,6 +123,21 @@ function Example() {
 }
 ```
 
+#### Adding custom width and height to images
+By default every image rendered using Editmode is sized 50px in height and 50px in width. You can override those sizes by passing `imageHeight` and `imageWidth` as props.
+
+```js
+function Example() {
+  return (
+    <section>
+      <Editmode projectId="prj_h3Gk3gFVMXbl" defaultChunks={defaultChunksValue}>
+        <Chunk identifier="cnk_14a3902640051246876f" imageHeight={500} imageWidth={200} />
+      </Editmode>
+    </section>
+  );
+}
+```
+
 With this, chunks such as `Hello, {{name}}!` will be parsed as `Hello, John!`
 
 ### Step 3:
