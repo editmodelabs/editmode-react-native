@@ -138,7 +138,7 @@ function Example() {
 }
 ```
 
-With this, chunks such as `Hello, {{name}}!` will be parsed as `Hello, John!`
+Sizes passed through `imageHeight` and `imageWidth` are in pixels.
 
 ### Step 3:
 
