@@ -1,3 +1,28 @@
+# v0.0.2 (Tue Nov 10 2020)
+
+#### 🐛 Bug Fix
+
+- Feature: Add imageWidth and imageHeight as props on images [#2](https://github.com/editmodelabs/editmode-react-native/pull/2) ([@BosEriko](https://github.com/BosEriko))
+- Feature: Initial React Native [#1](https://github.com/editmodelabs/editmode-react-native/pull/1) ([@BosEriko](https://github.com/BosEriko))
+
+#### ⚠️ Pushed to `master`
+
+- Hotfix: Add pixel note for the imageHeight and imageWidth prop on README.md ([@BosEriko](https://github.com/BosEriko))
+- Feature: Add imageWidth and imageHeight documentation on README.md ([@BosEriko](https://github.com/BosEriko))
+- Hotfix: Use HTTPS instead of SSH on the .gitmodules for the workflow ([@BosEriko](https://github.com/BosEriko))
+- Hotfix: Re-add editmode-react-core to fix the submodule issue ([@BosEriko](https://github.com/BosEriko))
+- Hotfix: Remove editmode-core ([@BosEriko](https://github.com/BosEriko))
+- Feature: Create README.md ([@BosEriko](https://github.com/BosEriko))
+- Hotfix: Move the submodule to its proper folder ([@BosEriko](https://github.com/BosEriko))
+- Feature: Add the utilities from editmode-react content ([@BosEriko](https://github.com/BosEriko))
+- Initial Commit ([@BosEriko](https://github.com/BosEriko))
+
+#### Authors: 1
+
+- Bos Eriko Reyes ([@BosEriko](https://github.com/BosEriko))
+
+---
+
 # v3.1.14 (Fri Oct 23 2020)
 
 #### 🐛 Bug Fix
