@@ -21,7 +21,7 @@
     "editable",
     "react-native"
   ],
-  "author": "Editmode",
+  "author": "bos.eriko@gmail.com",
   "license": "ISC",
   "dependencies": {
     "@emotion/hash": "^0.8.0",
