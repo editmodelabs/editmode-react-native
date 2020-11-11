@@ -1,3 +1,15 @@
+# v0.0.3 (Wed Nov 11 2020)
+
+#### ⚠️ Pushed to `master`
+
+- Feature: Remove em-var ([@BosEriko](https://github.com/BosEriko))
+
+#### Authors: 1
+
+- Bos Eriko Reyes ([@BosEriko](https://github.com/BosEriko))
+
+---
+
 # v0.0.2 (Tue Nov 10 2020)
 
 #### 🐛 Bug Fix
