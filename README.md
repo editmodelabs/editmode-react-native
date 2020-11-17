@@ -104,6 +104,9 @@ function Example() {
 }
 ```
 
+Want to automate your tooling or workflow and generate your resource file programatically? You can use the content returned from the [GET Chunks](https://editmode.com/docs/api#!/Chunks/get_chunks) API endpoint.
+
+
 ### Specifying default content inline
 
 ```js
