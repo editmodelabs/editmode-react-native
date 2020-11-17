@@ -16,12 +16,13 @@ npm install editmode-react-native
 
 ```js
 import { Editmode } from "editmode-react-native";
-
-// 👉 `project_id` can be found in the URL:
-// https://editmode.com/projects/{project_id}/chunks
-    <Editmode projectId={project_id}>
-      <App />
-    </Editmode>
+  export default function App() {
+    return (
+      <Editmode projectId={project_id}>
+        <App />
+      </Editmode>
+     )
+   }  
 );
 ```
 
