@@ -1,127 +1,124 @@
-# Editmode for React
+# Editmode for React Native
 
-Editmode allows you to turn plain text in your React app into easily inline-editable bits of content that can be managed by anyone with no technical knowledge.
+Editmode is a CMS for your mobile app copy. Editmode frees your copy from your codebase, allowing your entire team to manage and collaborate on content from a single place.
 
 ## Installation
 
 Use npm to install Editmode:
 
 ```
-npm install editmode-react
-```
-
-or if you prefer yarn:
-
-```
-yarn add editmode-react
+npm install editmode-react-native
 ```
 
 ## Usage
 
-### Step 1:
-
-Within your React app, navigate to the index file within your src directory.
-Import the Editmode wrapper and wrap your App within.
-<div class="project-id-holder"></div>
+### Step 1: Import the Editmode wrapper and wrap your App within it
 
 ```js
-import { Editmode } from "editmode-react";
+import { Editmode } from "editmode-react-native";
 
 // 👉 `project_id` can be found in the URL:
 // https://editmode.com/projects/{project_id}/chunks
-
-ReactDOM.render(
-  <React>
     <Editmode projectId={project_id}>
       <App />
     </Editmode>
-  </React>,
-  document.getElementById("root")
 );
 ```
 
-### Step 2:
+### Step 1a (Optional): Create an Editmode account on Editmode.com and create/import your content 
 
-#### Rendering a chunk:
+👉 [Editmode Sign Up](https://editmode.com/users/sign_up) 👈
 
-If you have already created the chunk you would like to render on the Editmode CMS, you can simply pass the identifier as a prop and begin editing.
-You can provide default content as a fallback should anything go wrong trying to retrieve the data from the API:
+<hr/>
+
+# Rendering content inside your app
+
+In order to render app copy, you'll need to wrap it in the `<Chunk />` component. 
+
+#### The most basic way to render content is to pass in the identifier of your chunk on the Editmode platform.
 
 ```js
-import { Chunk } from "editmode-react";
+import { Chunk } from "editmode-react-native";
 
 function Example() {
   return (
     <section>
-      <Chunk identifier="cnk_321">I have default content</Chunk>
-      <Chunk identifier="cnk_123" />
+      <Chunk identifier="cnk_b6d6754b2cf6c59a7847" />
     </section>
   );
 }
 ```
 
-Alternatively, if you are using one of our **text editor plugins** and would like to create a new chunk directly from the editor, you may select the piece of text you would like to convert and hit <button class="display-button">CMD</button>+<button class="display-button">SHIFT</button>+<button class="display-button">L</button> if you're on Mac and <button class="display-button">WIN</button>+<button class="display-button">SHIFT</button>+<button class="display-button">L</button> if you're on Windows. (For Visual Studio Code users, you can also hit <button class="display-button">CMD</button>+<button class="display-button">SHIFT</button>+<button class="display-button">P</button> if you're on Mac and <button class="display-button">WIN</button>+<button class="display-button">SHIFT</button>+<button class="display-button">P</button> if you're on Windows to open the command palette, type "Editmode: Create Chunk" and hit enter).
-
-#### Rendering a chunk collection:
-
-Chunk collections are simply a way to categorise chunks and can be used to render repeatable content.
-Each collection can contain many properties and each property can hold different types of information.
-
-A good use case example would be creating a "Team Member" collection. It may have `Full Name`, `Title` and `Headshot` properties. Within your React app, you may want to display the name, title and headshot of all your team members (ie all chunks within the Team Member collection). You can do this by passing the chunk collection identifier as a prop to the ChunkCollection component. To render the name, title and headshot for each team member, pass the identifiers for each property as a prop to the ChunkFieldValue component:
+#### For better readability, you can opt to pass in the content key of your chunk on the Editmode platform.
 
 ```js
-import { ChunkCollection, ChunkFieldValue } from "editmode-react";
-
-function Example() {
-	return (
-    <section className="meet_the_team">
-      <ChunkCollection identifier="lst_123" className="team_member">
-        <h2><ChunkFieldValue identifier="prop_001" className="name"/><h2>
-        <h5><ChunkFieldValue identifier="prop_002" className="title"/></h5>
-        <div><ChunkFieldValue identifier="prop_003" className="headshot"/></div>
-      </ChunkCollection>
-    </section>
-	);
-}
-```
-
-This will render editable headings containing the name and title and an image containing the headshot for every person in the "Team Member" collection.
-
-#### Using default chunks array as fallback:
-
-For cases when there's no internet connection but your app is designed to work in offline mode, Editmode supports having an array of default chunks as fallback.
-
-```js
-const defaultChunksValue = [
-  {"identifier":"cnk_2177d77492a2dead1585","chunk_type":"single_line_text","project_id":"prj_h3Gk3gFVMXbl","branch_id":"d1dWhVyF85Yr","master_branch":true,"content_key":"","content":"This is a single line text!"},
-];
+import { Chunk } from "editmode-react-native";
 
 function Example() {
   return (
     <section>
-      <Editmode projectId="prj_h3Gk3gFVMXbl" defaultChunks={defaultChunksValue}>
-        <Chunk identifier="cnk_2177d77492a2dead1585" />
-      </Editmode>
+      <Chunk contentKey="simple_chunk_example" />
     </section>
   );
 }
 ```
 
-#### Using variables:
-
-Variables that are created in the Editmode CMS are also supported by passing an object prop as `variables`.
+#### Use variables to personalize and interpolate the content you're showing.
 
 ```js
+import { Chunk } from "editmode-react-native";
+
 function Example() {
   return (
     <section>
-      <Editmode projectId="prj_h3Gk3gFVMXbl" defaultChunks={defaultChunksValue}>
-        <Chunk identifier="cnk_2177d77492a2dead1585" variables={{ "name": "John" }} />
-      </Editmode>
+      <Chunk contentKey="welcome_message" variables={{first_name:"Joe"}} />
     </section>
   );
 }
 ```
+
+<hr/>
+
+
+# Fallbacks
+
+As you may have inferred, the above examples rely on the Editmode API to serve content. This carries speed and uptime considerations. To address this, you may also specify your own fallback content, in a number of ways.
+
+### Using a resource file
+
+```js
+
+import { defaultChunks } from "./data/defaultChunks";
+import { Chunk } from "editmode-react-native";
+
+function Example() {
+  return (
+    <Editmode projectId={project_id} defaultChunks={defaultChunks} >
+      <section>
+        {/* The following chunk will first check the content in defaultChunks before hitting the API. */}
+        <Chunk identifier="cnk_b6d6754b2cf6c59a7847" />
+      </section>
+    </Editmode>
+  );
+}
+```
+
+### Specifying default content inline
+
+```js
+
+import { Chunk } from "editmode-react-native";
+
+function Example() {
+  return (
+    <section>
+      {/* The following chunk show the inline content before fetching content from our API. */}
+      <Chunk contentKey="welcome_message">Welcome to our app!</Chunk>
+    </section>
+  );
+}
+```
+
 
 #### Adding custom width and height to images
 By default every image rendered using Editmode is sized 50px in height and 50px in width. You can override those sizes by passing `imageHeight` and `imageWidth` as props.
@@ -130,7 +127,7 @@ By default every image rendered using Editmode is sized 50px in height and 50px 
 function Example() {
   return (
     <section>
-      <Editmode projectId="prj_h3Gk3gFVMXbl" defaultChunks={defaultChunksValue}>
+      <Editmode projectId="prj_h3Gk3gFVMXbl">
         <Chunk identifier="cnk_14a3902640051246876f" imageHeight={500} imageWidth={200} />
       </Editmode>
     </section>
@@ -140,11 +137,6 @@ function Example() {
 
 Sizes passed through `imageHeight` and `imageWidth` are in pixels.
 
-### Step 3:
-
-You can now edit and save all of the chunks in your React app from within the browser - just add `editmode=1` as a query string parameter to the current URL.
-
-<div class="contributors-section"></div>
 
 ## Contributors ✨
 
