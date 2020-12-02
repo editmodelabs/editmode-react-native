@@ -1,3 +1,30 @@
+# v0.0.4 (Wed Dec 02 2020)
+
+:tada: This release contains work from new contributors! :tada:
+
+Thanks for all your work!
+
+:heart: Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+
+:heart: null[@tonyennis145](https://github.com/tonyennis145)
+
+#### 🐛 Bug Fix
+
+- Modify content flow with variables [#3](https://github.com/editmodelabs/editmode-react-native/pull/3) ([@puuripurii](https://github.com/puuripurii))
+
+#### ⚠️ Pushed to `master`
+
+- Revert "update utils" ([@puuripurii](https://github.com/puuripurii))
+- update utils ([@puuripurii](https://github.com/puuripurii))
+- Update README.md ([@tonyennis145](https://github.com/tonyennis145))
+
+#### Authors: 2
+
+- [@tonyennis145](https://github.com/tonyennis145)
+- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+
+---
+
 # v0.0.3 (Wed Nov 11 2020)
 
 #### ⚠️ Pushed to `master`
