@@ -3,9 +3,9 @@ import { useContext, useEffect, useState, useMemo } from "react";
 
 import { EditmodeContext } from "./EditmodeContext";
 import { api, computeContentKey } from './utils'
-import { renderChunk, getCachedData, storeCache } from './utils/native'
+import { renderChunk, getCachedData, storeCache, sanitizeContent } from './utils/native'
 
-export function useChunk(defaultContent = "", { identifier, type, contentKey }) {
+export function useChunk(defaultContent = "", { identifier, type, contentKey, variables }) {
   const { projectId, defaultChunks } = useContext(EditmodeContext);
   const [chunk, setChunk] = useState(undefined);
 
@@ -34,11 +34,20 @@ export function useChunk(defaultContent = "", { identifier, type, contentKey }) 
   useEffect(() => {
     // Render content
     (async () =>{
-      const cachedChunk = await getCachedData(cacheId);
-      const newChunk = cachedChunk ? JSON.parse(cachedChunk) : fallbackChunk || {
-        chunk_type: type || "single_line_text",
-        content: defaultContent,
-        content_key: contentKey
+      let cachedChunk = await getCachedData(cacheId)
+      let newChunk;
+      if (cachedChunk) {
+        let dataChunk = JSON.parse(cachedChunk);
+        const parsedChunk = sanitizeContent(dataChunk, variables, fallbackChunk)
+        newChunk = parsedChunk;
+      } else if (fallbackChunk) {
+        newChunk = fallbackChunk;
+      } else {
+        newChunk = {
+          chunk_type: type || "single_line_text",
+          content: defaultContent,
+          content_key: contentKey
+        }
       }
 
       if (newChunk) setChunk(newChunk)
@@ -49,7 +58,10 @@ export function useChunk(defaultContent = "", { identifier, type, contentKey }) 
         .get(url)
         .then((res) => {
           storeCache(cacheId, res.data)
-          if (!cachedChunk) setChunk(res.data)
+          if (!cachedChunk) {
+            const parsedChunk = sanitizeContent(res.data, variables, fallbackChunk)
+            setChunk(parsedChunk)
+          }
         }) // Store chunk to localstorage
         .catch((error) => console.log(error)); // Set error state
 
