@@ -2,8 +2,8 @@
 import { useContext, useEffect, useState, useMemo } from "react";
 
 import { EditmodeContext } from "./EditmodeContext";
-import { api, computeContentKey } from './utils'
-import { renderChunk, getCachedData, storeCache, sanitizeContent } from './utils'
+import { api, computeContentKey } from './utilities'
+import { renderChunk, getCachedData, storeCache, sanitizeContent } from './utilities'
 
 export function useChunk(defaultContent = "", { identifier, type, contentKey, variables }) {
   const { projectId, defaultChunks } = useContext(EditmodeContext);
