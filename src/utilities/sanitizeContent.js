@@ -6,9 +6,8 @@ export const sanitizeContent = (chunk, variables, fallbackChunk) => {
     tokens.forEach(function(token) {
       const value = variables && variables[token] || ""
       chunk.content = chunk.content.replace(`{{${token}}}`, value);
+      if (!value) isVariableSafe = false;
     });
-
-    if (!value) isVariableSafe = false;
   }
 
   if ( !isVariableSafe && fallbackChunk) {
