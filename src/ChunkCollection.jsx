@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 
 import { ChunkCollectionContext } from "./ChunkCollectionContext";
-import { api } from './utils'
-import { getCachedData, storeCache } from './utils/native'
+import { api } from './utilities'
+import { getCachedData, storeCache } from './utilities'
 
 export function ChunkCollection({
   children,
