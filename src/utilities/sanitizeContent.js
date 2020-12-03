@@ -11,7 +11,7 @@ export const sanitizeContent = (chunk, variables, fallbackChunk) => {
   }
 
   if ( !isVariableSafe && fallbackChunk) {
-    chunk.content = fallbackChunk.content
+    chunk = sanitizeContent(fallbackChunk, variables, null)
   }
 
   return chunk
