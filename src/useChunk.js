@@ -42,6 +42,7 @@ export function useChunk(defaultContent = "", { identifier, type, contentKey, va
         content_key: contentKey
       }
 
+
       if (newChunk) setChunk(sanitizeContent(newChunk, variables, fallbackChunk))
 
       // Fetch new data

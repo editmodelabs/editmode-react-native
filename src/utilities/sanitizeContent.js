@@ -1,4 +1,5 @@
-export const sanitizeContent = (chunk, variables, fallbackChunk) => {
+export const sanitizeContent = (data, variables, fallbackChunk) => {
+  let chunk = {...data};
   const tokens = (chunk.content.match(/\{{(.*?)\}}/g)|| []).map(t => t.substr(2, t.length-4))
   
   let isVariableSafe = true;
