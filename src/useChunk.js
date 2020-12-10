@@ -35,22 +35,15 @@ export function useChunk(defaultContent = "", { identifier, type, contentKey, va
     // Render content
     (async () =>{
       let cachedChunk = await getCachedData(cacheId)
-      let newChunk;
-      if (cachedChunk) {
-        let dataChunk = JSON.parse(cachedChunk);
-        const parsedChunk = sanitizeContent(dataChunk, variables, fallbackChunk)
-        newChunk = parsedChunk;
-      } else if (fallbackChunk) {
-        newChunk = fallbackChunk;
-      } else {
-        newChunk = {
-          chunk_type: type || "single_line_text",
-          content: defaultContent,
-          content_key: contentKey
-        }
+
+      const newChunk = cachedChunk ? JSON.parse(cachedChunk) : fallbackChunk || {
+        chunk_type: type || "single_line_text",
+        content: defaultContent,
+        content_key: contentKey
       }
 
-      if (newChunk) setChunk(newChunk)
+
+      if (newChunk) setChunk(sanitizeContent(newChunk, variables, fallbackChunk))
 
       // Fetch new data
       let error;
