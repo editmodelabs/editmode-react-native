@@ -1,3 +1,15 @@
+# v0.0.5 (Thu Dec 10 2020)
+
+#### 🐛 Bug Fix
+
+- Modify Flow with Variables and Fallback [#4](https://github.com/editmodelabs/editmode-react-native/pull/4) ([@puuripurii](https://github.com/puuripurii))
+
+#### Authors: 1
+
+- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+
+---
+
 # v0.0.4 (Wed Dec 02 2020)
 
 :tada: This release contains work from new contributors! :tada:
