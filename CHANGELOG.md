@@ -1,3 +1,15 @@
+# v0.0.6 (Fri Dec 11 2020)
+
+#### 🐛 Bug Fix
+
+- Feature: Add branchId prop to Editmode Component [#5](https://github.com/editmodelabs/editmode-react-native/pull/5) ([@puuripurii](https://github.com/puuripurii))
+
+#### Authors: 1
+
+- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+
+---
+
 # v0.0.5 (Thu Dec 10 2020)
 
 #### 🐛 Bug Fix
