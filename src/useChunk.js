@@ -6,7 +6,7 @@ import { api, computeContentKey } from './utilities'
 import { renderChunk, getCachedData, storeCache, sanitizeContent } from './utilities'
 
 export function useChunk(defaultContent = "", { identifier, type, contentKey, variables }) {
-  const { projectId, defaultChunks } = useContext(EditmodeContext);
+  const { projectId, defaultChunks, branch } = useContext(EditmodeContext);
   const [chunk, setChunk] = useState(undefined);
 
    if (!contentKey)  {
@@ -29,8 +29,6 @@ export function useChunk(defaultContent = "", { identifier, type, contentKey, va
     );
   }
 
-  const url = `chunks/${identifier || contentKey}?project_id=${projectId}`;
-
   useEffect(() => {
     // Render content
     (async () =>{
@@ -46,7 +44,8 @@ export function useChunk(defaultContent = "", { identifier, type, contentKey, va
       if (newChunk) setChunk(sanitizeContent(newChunk, variables, fallbackChunk))
 
       // Fetch new data
-      let error;
+      const branchParams = branch ? `&branch_id=${branch}` : "";
+      const url = `chunks/${identifier || contentKey}?project_id=${projectId}${branchParams}`;
       api
         .get(url)
         .then((res) => {
@@ -56,13 +55,9 @@ export function useChunk(defaultContent = "", { identifier, type, contentKey, va
             setChunk(parsedChunk)
           }
         }) // Store chunk to localstorage
-        .catch((error) => console.log(error)); // Set error state
-
-      if (error && identifier) {
-        console.warn(
-          `Something went wrong trying to retrieve chunk data: ${error}. Have you provided the correct Editmode identifier (${identifier}) as a prop to your Chunk component instance?`
-        );
-      }
+        .catch((error) => {
+          console.warn(`Something went wrong trying to retrieve chunk data: ${error}. Have you provided the correct Editmode identifier (${identifier || contentKey}) as a prop to your Chunk component instance?`)
+        }); // Set error state
     })();
   }, [cacheId]);
 
