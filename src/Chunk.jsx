@@ -9,7 +9,7 @@ export function Chunk({ children, identifier, src, contentKey, ...props }) {
   const variables = props.variables;
   const { Component } = useChunk(defaultContent, { identifier, type, contentKey, variables });
 
-  return <Component {...props} />;
+  return <Component {...props}/>;
 }
 
 // Here for backwards-compatibility, but named exports are preferred
