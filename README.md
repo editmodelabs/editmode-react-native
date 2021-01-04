@@ -141,6 +141,10 @@ function Example() {
 
 Sizes passed through `imageHeight` and `imageWidth` are in pixels.
 
+### Render Content Flow
+![Render Content Flow](https://i.imgur.com/EdJksXs.png)
+
+<div class="contributors-section"></div>
 
 ## Contributors ✨
 
