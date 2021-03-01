@@ -1,3 +1,15 @@
+# v0.0.7 (Mon Mar 01 2021)
+
+#### 🐛 Bug Fix
+
+- Feature: Refresh Chunk [#6](https://github.com/editmodelabs/editmode-react-native/pull/6) ([@puuripurii](https://github.com/puuripurii))
+
+#### Authors: 1
+
+- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+
+---
+
 # v0.0.6 (Fri Dec 11 2020)
 
 #### 🐛 Bug Fix
