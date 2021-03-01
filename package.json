@@ -1,6 +1,6 @@
 {
   "name": "editmode-react-native",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Convert slices of content in your React Native app into inline-editable Editmode chunks.",
   "main": "dist/main",
   "scripts": {
