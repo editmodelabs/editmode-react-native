@@ -141,6 +141,22 @@ function Example() {
 
 Sizes passed through `imageHeight` and `imageWidth` are in pixels.
 
+### Trigger Cache Expire
+You may want to refresh all your contents to make sure your user see the right contents in your app. You can use the `refreshChunks` function to force update your localstorage with the recent version of your contents from Editmode Contet Hub. 
+
+**Example:**
+```jsx
+  <Button
+    onPress={() => refreshChunks()}
+    title="Refresh"
+    color="#841584"
+    accessibilityLabel="Refresh"
+  />
+```
+
+#### Live Demo:
+[View in expo](https://snack.expo.io/@puuripurii/bridge-variables-example)
+
 ### Render Content Flow
 ![Render Content Flow](https://i.imgur.com/EdJksXs.png)
 
