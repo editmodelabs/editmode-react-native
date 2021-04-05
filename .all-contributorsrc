@@ -50,6 +50,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jenvillaganas",
+      "name": "Jen Villaganas ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26903002?v=4",
+      "profile": "https://github.com/jenvillaganas",
+      "contributions": [
+        "doc",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
