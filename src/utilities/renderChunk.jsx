@@ -29,7 +29,7 @@ export const renderChunk = (chunk, props) => {
     case "image":
       return (<Image
         {...defaultprops}
-        source={{uri:`http:${chunk.content}`}}
+        source={{uri:chunk.content}}
         style={{ height: imageHeight, width: imageWidth }}
         data-chunk-editable={false}
         {...props}
