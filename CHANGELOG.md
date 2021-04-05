@@ -1,3 +1,15 @@
+# v0.0.8 (Mon Apr 05 2021)
+
+#### 🐛 Bug Fix
+
+- Remove Protocol [#7](https://github.com/editmodelabs/editmode-react-native/pull/7) ([@jenvillaganas](https://github.com/jenvillaganas))
+
+#### Authors: 1
+
+- Jen Villaganas  ([@jenvillaganas](https://github.com/jenvillaganas))
+
+---
+
 # v0.0.7 (Mon Mar 01 2021)
 
 #### 🐛 Bug Fix
