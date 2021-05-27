@@ -9,11 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "@emotion/hash": "0.8.*",
-    "axios": "^0.19.2",
-    "lodash.kebabcase": "^4.1.1",
-    "react-dom": "16.*",
-    "react-router-native": "5.*"
+    "react-native": "*.*.*"
   },
   "keywords": [
     "Editmode",
@@ -25,15 +21,10 @@
   "license": "ISC",
   "dependencies": {
     "@emotion/hash": "^0.8.0",
-    "@react-native-community/async-storage": "^1.12.1",
+    "@react-native-async-storage/async-storage": "^1.15.4",
     "axios": "^0.19.2",
-    "isomorphic-dompurify": "^0.6.0",
     "lodash.kebabcase": "^4.1.1",
-    "react-native-eventemitter": "^0.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-router-native": "^5.2.0",
-    "react-scripts": "^3.4.3",
-    "swr": "^0.3.0"
+    "react-native-eventemitter": "^0.0.1"
   },
   "devDependencies": {
     "@auto-it/all-contributors": "^9.35.1",
