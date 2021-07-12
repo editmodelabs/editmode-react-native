@@ -21,7 +21,7 @@ export const useGetChunk = (identifier, field = "") => {
           );
           setChunk(parsedChunk);
         }
-      }) // Store chunk to localstorage
+      })
       .catch((error) => {
         console.warn(
           `Something went wrong while trying to retrieve chunk data: ${error}. Have you provided the correct Editmode identifier (${
@@ -44,7 +44,6 @@ export const useGetChunk = (identifier, field = "") => {
     let url = `chunks/${identifier}?project_id=${project}`;
 
     sendApiRequest(url, cachedChunk);
-    EventEmitter.on("refreshChunk", () => sendApiRequest(url, null));
   }, [cacheId]);
 
   if (field && chunk && chunk.chunk_type == "collection_item") {
