@@ -24,7 +24,7 @@ export const useGetChunk = (identifier, field = "") => {
       }) // Store chunk to localstorage
       .catch((error) => {
         console.warn(
-          `Something went wrong trying to retrieve chunk data: ${error}. Have you provided the correct Editmode identifier (${
+          `Something went wrong while trying to retrieve chunk data: ${error}. Have you provided the correct Editmode identifier (${
             identifier || contentKey
           }) as a prop to your Chunk component instance?`
         );
