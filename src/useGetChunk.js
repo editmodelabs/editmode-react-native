@@ -3,7 +3,7 @@ import { EditmodeContext } from "./EditmodeContext";
 import EventEmitter from "react-native-eventemitter";
 import { useEffect, useState, useContext } from "react";
 
-export const useGetChunk = (identifier, field = "") => {
+export const useGetChunk = (project_identifier, identifier, field = "") => {
   const { projectId } = useContext(EditmodeContext);
   const [project, setProject] = useState(projectId);
   const [chunk, setChunk] = useState(undefined);
@@ -36,6 +36,10 @@ export const useGetChunk = (identifier, field = "") => {
   useEffect(() => {
     if (!project && window && window["chunksProjectIdentifier"]) {
       setProject(window["chunksProjectIdentifier"]);
+    }
+
+    if (!project && project_identifier) {
+      setProject(project_identifier);
     }
 
     const cachedChunk = getCachedData(cacheId);
