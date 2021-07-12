@@ -1,5 +1,6 @@
 import { storeCache, getCachedData, api } from "./utilities";
 import { EditmodeContext } from "./EditmodeContext";
+import EventEmitter from "react-native-eventemitter";
 import { useEffect, useState, useContext } from "react";
 
 export const useGetChunk = (identifier, field = "") => {
@@ -7,10 +8,33 @@ export const useGetChunk = (identifier, field = "") => {
   const [project, setProject] = useState(projectId);
   const [chunk, setChunk] = useState(undefined);
 
+  function sendApiRequest(url, cachedChunk) {
+    api
+      .get(url)
+      .then((res) => {
+        storeCache(cacheId, res.data);
+        if (!cachedChunk) {
+          const parsedChunk = sanitizeContent(
+            res.data,
+            variables,
+            fallbackChunk
+          );
+          setChunk(parsedChunk);
+        }
+      }) // Store chunk to localstorage
+      .catch((error) => {
+        console.warn(
+          `Something went wrong while trying to retrieve chunk data: ${error}. Have you provided the correct Editmode identifier (${
+            identifier || contentKey
+          }) as a prop to your Chunk component instance?`
+        );
+      });
+  }
+
   const cacheId = identifier + project + field;
 
   useEffect(() => {
-    if (!project && window["chunksProjectIdentifier"]) {
+    if (!project && window && window["chunksProjectIdentifier"]) {
       setProject(window["chunksProjectIdentifier"]);
     }
 
@@ -19,16 +43,8 @@ export const useGetChunk = (identifier, field = "") => {
 
     let url = `chunks/${identifier}?project_id=${project}`;
 
-    api
-      .get(url)
-      .then((res) => {
-        const error = res.data.error || res.data.message;
-        if (!error) {
-          storeCache(cacheId, res.data);
-          if (!cachedChunk) setChunk(res.data);
-        }
-      })
-      .catch((error) => console.error(error, identifier, field)); // Set error state
+    sendApiRequest(url, cachedChunk);
+    EventEmitter.on("refreshChunk", () => sendApiRequest(url, null));
   }, [cacheId]);
 
   if (field && chunk && chunk.chunk_type == "collection_item") {

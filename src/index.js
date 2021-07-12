@@ -8,9 +8,8 @@ export { useChunk } from "./useChunk";
 export { useGetChunk } from "./useGetChunk";
 import EventEmitter from "react-native-eventemitter";
 
-
 function refreshChunks() {
   EventEmitter.emit("refreshChunk");
 }
 
-export { refreshChunks }
+export { refreshChunks };
