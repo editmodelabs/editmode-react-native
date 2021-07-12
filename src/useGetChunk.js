@@ -4,15 +4,16 @@ import { useEffect, useState, useContext } from "react";
 
 export const useGetChunk = (identifier, field = "") => {
   const { projectId } = useContext(EditmodeContext);
-  const [project, setProject] = useState(projectId);
+  const [project, setProject] = useState("prj_Y5HfCBS4rqZg");
   const [chunk, setChunk] = useState(undefined);
 
   const cacheId = identifier + project + field;
 
   useEffect(() => {
-    if (!project && window["chunksProjectIdentifier"]) {
-      setProject(window["chunksProjectIdentifier"]);
-    }
+    // if (!project && window["chunksProjectIdentifier"]) {
+    //   setProject(window["chunksProjectIdentifier"]);
+    // }
+    setProject("prj_Y5HfCBS4rqZg");
 
     const cachedChunk = getCachedData(cacheId);
     if (cachedChunk) setChunk(JSON.parse(cachedChunk));
