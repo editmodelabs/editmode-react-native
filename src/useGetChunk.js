@@ -18,12 +18,7 @@ export const useGetChunk = (
       .then((res) => {
         storeCache(cacheId, res.data);
         if (!cachedChunk) {
-          const parsedChunk = sanitizeContent(
-            res.data,
-            variables,
-            fallbackChunk
-          );
-          setChunk(parsedChunk);
+          setChunk(res.data);
         }
       })
       .catch((error) => {
