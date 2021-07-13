@@ -1,9 +1,25 @@
 import React, { useEffect, useState } from "react";
+import EventEmitter from "react-native-eventemitter";
 import { getCachedData, storeCache, api } from "./utilities";
 
 export function useText(projectId) {
   const [chunks, setChunk] = useState([]);
   const cacheId = projectId + "_text_chunks";
+
+  const fetchTextChunks = (url, cachedChunk) => {
+    api
+      .get(url)
+      .then((res) => {
+        if (res.data.error) throw res.data.error;
+        storeCache(cacheId, res.data.chunks);
+        if (!cachedChunk) setChunk(res.data.chunks);
+      })
+      .catch((error) => {
+        console.error(
+          `Something went wrong trying to retrieve the chunks ${error}. Have you provided the correct Editmode identifier as a prop to your ChunkCollection component instance?`
+        );
+      });
+  };
 
   useEffect(() => {
     (async () => {
@@ -12,18 +28,9 @@ export function useText(projectId) {
         const data = JSON.parse(cachedChunk);
         setChunk(data);
       }
-      api
-        .get(`chunks?project_id=${projectId}`)
-        .then((res) => {
-          if (res.data.error) throw res.data.error;
-          storeCache(cacheId, res.data.chunks);
-          if (!cachedChunk) setChunk(res.data.chunks);
-        })
-        .catch((error) => {
-          console.error(
-            `Something went wrong trying to retrieve chunk collection: ${error}. Have you provided the correct Editmode identifier as a prop to your ChunkCollection component instance?`
-          );
-        });
+      const url = `chunks?project_id=${projectId}`;
+      fetchTextChunks(url, cachedChunk);
+      EventEmitter.on("refreshChunk", () => fetchTextChunks(url, null));
     })();
   }, [projectId]);
 
