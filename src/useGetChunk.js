@@ -3,7 +3,11 @@ import { EditmodeContext } from "./EditmodeContext";
 import EventEmitter from "react-native-eventemitter";
 import { useEffect, useState, useContext } from "react";
 
-export const useGetChunk = (project_identifier, identifier, field = "") => {
+export const useGetChunk = (
+  identifier,
+  project_identifier = "",
+  field = ""
+) => {
   const { projectId } = useContext(EditmodeContext);
   const [project, setProject] = useState(projectId);
   const [chunk, setChunk] = useState(undefined);
@@ -34,16 +38,19 @@ export const useGetChunk = (project_identifier, identifier, field = "") => {
   const cacheId = identifier + project + field;
 
   useEffect(() => {
-    if (!project && project_identifier) {
-      setProject(project_identifier);
-    }
+    async () => {
+      if (!project && project_identifier) {
+        setProject(project_identifier);
+      }
 
-    const cachedChunk = getCachedData(cacheId);
-    if (cachedChunk) setChunk(JSON.parse(cachedChunk));
+      const cachedChunk = await getCachedData(cacheId);
+      if (cachedChunk) setChunk(JSON.parse(cachedChunk));
 
-    let url = `chunks/${identifier}?project_id=${project}`;
+      let url = `chunks/${identifier}?project_id=${project}`;
 
-    sendApiRequest(url, cachedChunk);
+      sendApiRequest(url, cachedChunk);
+      EventEmitter.on("refreshChunk", () => sendApiRequest(url, null));
+    };
   }, [cacheId]);
 
   if (field && chunk && chunk.chunk_type == "collection_item") {
