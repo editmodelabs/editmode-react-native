@@ -34,10 +34,6 @@ export const useGetChunk = (project_identifier, identifier, field = "") => {
   const cacheId = identifier + project + field;
 
   useEffect(() => {
-    if (!project && window && window["chunksProjectIdentifier"]) {
-      setProject(window["chunksProjectIdentifier"]);
-    }
-
     if (!project && project_identifier) {
       setProject(project_identifier);
     }
