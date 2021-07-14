@@ -1,3 +1,15 @@
+# v0.0.9 (Wed Jul 14 2021)
+
+#### 🚀 Enhancement
+
+- Add useText and useGetChunk hooks [#9](https://github.com/editmodelabs/editmode-react-native/pull/9) ([@francisbulus](https://github.com/francisbulus))
+
+#### Authors: 1
+
+- Francis Bulus ([@francisbulus](https://github.com/francisbulus))
+
+---
+
 # v0.0.8 (Mon Apr 05 2021)
 
 #### 🐛 Bug Fix
@@ -6,7 +18,7 @@
 
 #### Authors: 1
 
-- Jen Villaganas  ([@jenvillaganas](https://github.com/jenvillaganas))
+- Jen Villaganas ([@jenvillaganas](https://github.com/jenvillaganas))
 
 ---
 
@@ -18,7 +30,7 @@
 
 #### Authors: 1
 
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -30,7 +42,7 @@
 
 #### Authors: 1
 
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -42,7 +54,7 @@
 
 #### Authors: 1
 
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -52,7 +64,7 @@
 
 Thanks for all your work!
 
-:heart: Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+:heart: Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 :heart: null[@tonyennis145](https://github.com/tonyennis145)
 
@@ -69,7 +81,7 @@ Thanks for all your work!
 #### Authors: 2
 
 - [@tonyennis145](https://github.com/tonyennis145)
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -118,7 +130,7 @@ Thanks for all your work!
 
 #### Authors: 1
 
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -130,7 +142,7 @@ Thanks for all your work!
 
 #### Authors: 1
 
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -142,7 +154,7 @@ Thanks for all your work!
 
 #### Authors: 1
 
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -166,7 +178,7 @@ Thanks for all your work!
 
 #### Authors: 1
 
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -178,7 +190,7 @@ Thanks for all your work!
 
 #### Authors: 1
 
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -191,7 +203,7 @@ Thanks for all your work!
 #### Authors: 2
 
 - Bos Eriko Reyes ([@BosEriko](https://github.com/BosEriko))
-- Jen Villaganas  ([@puuripurii](https://github.com/puuripurii))
+- Jen Villaganas ([@puuripurii](https://github.com/puuripurii))
 
 ---
 
@@ -209,7 +221,7 @@ Thanks for all your work!
 
 # v3.1.6 (Mon Aug 24 2020)
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Feature: Add react-native to peerDependecies ([@BosEriko](https://github.com/BosEriko))
 
@@ -274,7 +286,7 @@ Thank you, Bos Eriko Reyes ([@BosEriko](https://github.com/BosEriko)), for all y
 
 # v3.1.1 (Sun Jul 19 2020)
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Remove SWR from yarn.lock ([@ericclemmons](https://github.com/ericclemmons))
 
@@ -318,7 +330,7 @@ Thank you, Jen Villaganas ([@puuripurii](https://github.com/puuripurii)), for al
 
 - <Chunk {...props /> are passed to renderChunk(chunk[, props]) [#6](https://github.com/Editmode-app/editmode-react/pull/6) ([@ericclemmons](https://github.com/ericclemmons))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Remove unused exports ([@ericclemmons](https://github.com/ericclemmons))
 
@@ -342,7 +354,7 @@ Thank you, Jen Villaganas ([@puuripurii](https://github.com/puuripurii)), for al
 
 # v2.0.3 (Fri Jun 12 2020)
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Merge branch 'master' of github.com:Editmode-app/editmode-react ([@ericclemmons](https://github.com/ericclemmons))
 - Release ([@ericclemmons](https://github.com/ericclemmons))
@@ -356,7 +368,7 @@ Thank you, Jen Villaganas ([@puuripurii](https://github.com/puuripurii)), for al
 
 # v2.0.2 (Fri Jun 12 2020)
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Fix call to GET chunks for collections ([@ericclemmons](https://github.com/ericclemmons))
 
@@ -400,7 +412,7 @@ Thank you, Eric Clemmons ([@ericclemmons](https://github.com/ericclemmons)), for
 
 - Add auto [#1](https://github.com/Editmode-app/editmode-react/pull/1) ([@ericclemmons](https://github.com/ericclemmons))
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Ignore .env files ([@ericclemmons](https://github.com/ericclemmons))
 
