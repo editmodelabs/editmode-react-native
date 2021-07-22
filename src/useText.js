@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import EventEmitter from "react-native-eventemitter";
 import { getCachedData, storeCache, api } from "./utilities";
 
-export function useText(projectId) {
+const useFetch = (id) => () => {
   const [chunks, setChunk] = useState([]);
-  const cacheId = projectId + "_text_chunks";
+  const cacheId = id + "_text_chunks";
 
   const fetchTextChunks = (url, cachedChunk) => {
     api
@@ -28,21 +28,28 @@ export function useText(projectId) {
         const data = JSON.parse(cachedChunk);
         setChunk(data);
       }
-      const url = `chunks?project_id=${projectId}`;
+      const url = `chunks?project_id=${id}`;
       fetchTextChunks(url, cachedChunk);
       EventEmitter.on("refreshChunk", () => fetchTextChunks(url, null));
     })();
-  }, [projectId]);
+  }, [id]);
 
   if (!chunks && !chunks.length) {
     return null;
   }
-  let text_content = {};
+  let textChunks = {};
   if (chunks) {
     chunks.forEach((chunk) => {
       if (chunk["chunk_type"] == "single_line_text" || "long_text")
-        return (text_content[chunk["content_key"]] = chunk["content"]);
+        return (textChunks[chunk["content_key"]] = chunk["content"]);
     });
   }
-  return text_content;
+  return textChunks;
+};
+
+export function useText(projectId) {
+  const getValues = useFetch(projectId);
+  return [getValues];
 }
+
+export default useText;
