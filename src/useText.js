@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import EventEmitter from "react-native-eventemitter";
 import { getCachedData, storeCache, api } from "./utilities";
 
-export function useText(projectId) {
+export function useText(projectId, fetch = true) {
   const [chunks, setChunk] = useState([]);
   const cacheId = projectId + "_text_chunks";
-
+  if (!fetch) return {};
   const fetchTextChunks = (url, cachedChunk) => {
     api
       .get(url)
@@ -40,7 +40,11 @@ export function useText(projectId) {
   let text_content = {};
   if (chunks) {
     chunks.forEach((chunk) => {
-      if (chunk["chunk_type"] == "single_line_text" || "long_text")
+      if (
+        chunk["content_key"] !== null &&
+        (chunk["chunk_type"] == "single_line_text" ||
+          chunk["chunk_type"] == "long_text")
+      )
         return (text_content[chunk["content_key"]] = chunk["content"]);
     });
   }
