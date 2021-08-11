@@ -28,7 +28,7 @@ export function useText(projectId, fetch = true) {
         const data = JSON.parse(cachedChunk);
         setChunk(data);
       }
-      const url = `chunks?project_id=${projectId}`;
+      const url = `text_chunks?project_id=${projectId}`;
       fetchTextChunks(url, cachedChunk);
       EventEmitter.on("refreshChunk", () => fetchTextChunks(url, null));
     })();
