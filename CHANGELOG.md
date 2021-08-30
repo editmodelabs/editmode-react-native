@@ -1,3 +1,21 @@
+# v0.0.10 (Mon Aug 30 2021)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Francis Bulus ([@francisbulus](https://github.com/francisbulus)), for all your work!
+
+#### ⚠️ Pushed to `master`
+
+- run build ([@francisbulus](https://github.com/francisbulus))
+- update usetext to use new endpoint ([@francisbulus](https://github.com/francisbulus))
+- refactor usetext to use work with fetch flag ([@francisbulus](https://github.com/francisbulus))
+
+#### Authors: 1
+
+- Francis Bulus ([@francisbulus](https://github.com/francisbulus))
+
+---
+
 # v0.0.9 (Wed Jul 14 2021)
 
 :tada: This release contains work from a new contributor! :tada:
